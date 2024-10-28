@@ -49,6 +49,12 @@ def menor(s:List[int]) -> int:
     return res
 
 def ordenado(s:List[int]) -> bool:
+    i: int = 0
+    while ((i+1) < len(s)):
+        if s[i]>s[i+1]:
+            return False
+        i += 1
+    return True
     
 
 def ordenar(s:List[int]) -> List[int]:  #no esta en la guia, ordena una lista desordenada
@@ -58,6 +64,49 @@ def ordenar(s:List[int]) -> List[int]:  #no esta en la guia, ordena una lista de
         s.remove(menor(s))
     return res
 
-print(ordenado_org([9,2,3,1,54,0]))
-print(ordenado_org([0,2,3,1,54]))
-print(ordenado_org([1,2,3,1,54,0]))
+def pos_maximo(s:List[int]) -> int:
+    if len(s) == 0:
+        return -1
+    else:
+        return s.index(mayor(s))
+
+def pos_minimo(s:List[int]) -> int:
+    if len(s) == 0:
+        return -1
+    else:
+        return s.index(menor(s))
+
+def largo_de_palabras(s:List[str]) -> bool:
+    i: int =0
+    while i<len(s):
+        if len(s) == 0:
+            return False
+        elif len(s[i]) > 7:
+            return True
+        i += 1
+    return False
+
+def palindromo(s: List[str]) -> bool: #no esta terminado
+    res : List[str] = []
+    i: int = 0
+    while i < len(s):
+        res.append(s[i])
+        i =+ 1
+    if res == s:
+        return True
+    return False
+
+def tres_consecutivos(s:List[int]) -> bool:
+    i: int=0
+    if len(s)>2:
+        while i+2 < len(s):
+            if s[i] == s[i+1]:
+                if s[i] == s[i+2]:
+                    return True
+            i =+ 1
+    return False
+
+print(tres_consecutivos([1,2,2,3,4,5]))
+print(tres_consecutivos([1,2,2,2,3,4,5]))
+print(tres_consecutivos([]))
+print(tres_consecutivos([1,2,2,3,4,2,5]))
