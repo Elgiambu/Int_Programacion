@@ -91,7 +91,7 @@ def palindromo(s: List[str]) -> bool: #no esta terminado
     i: int = 0
     while i < len(s):
         res.append(s[i])
-        i =+ 1
+        i += 1
     if res == s:
         return True
     return False
@@ -103,10 +103,31 @@ def tres_consecutivos(s:List[int]) -> bool:
             if s[i] == s[i+1]:
                 if s[i] == s[i+2]:
                     return True
-            i =+ 1
+            i += 1
     return False
 
-print(tres_consecutivos([1,2,2,3,4,5]))
-print(tres_consecutivos([1,2,2,2,3,4,5]))
-print(tres_consecutivos([]))
-print(tres_consecutivos([1,2,2,3,4,2,5]))
+def digitos_impares(s:List[int]) -> List[int]:
+    i:int=0
+    lista_aux:List[int] = s
+    res:List[int]=[]
+    if (len(s)==0):
+        return res
+    else:
+        while (i < len(lista_aux)):
+            while (lista_aux[i]>10):
+                if ((lista_aux[i]%10)%2 != 0):
+                    res.append(lista_aux[i]%10)
+                lista_aux[i]/10
+            if lista_aux[i]%10 !=0:
+                res.append(lista_aux[i]%10) 
+            i += 1
+    return res
+
+print(digitos_impares([123,3,24,5,573]))
+print(digitos_impares([2,2,24,56,8]))
+print(digitos_impares([]))
+            
+
+
+
+
