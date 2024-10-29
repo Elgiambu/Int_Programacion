@@ -123,10 +123,23 @@ def digitos_impares(s:List[int]) -> int:
         i += 1
     return len(res)
 
-print(digitos_impares([123,3,24,5,573]))
-print(digitos_impares([]))
-            
+def ceros_en_posiciones_pares(s:List[int]) -> None:
+    i:int=0
+    if len(s) <= 1:
+        return s
+    while i < len(s):
+        if i%2 != 0:
+            s[i] = 0
+        i += 1
+    return s
 
-
-
+def sin_vocales(s:str) -> str:
+    i: int=0
+    res: str = ""
+    opc: str = "aeiouAEIOU"
+    while i < len(s):
+        if not pertenece(opc, s[i]):
+            res += s[i]
+        i += 1
+    return res
 
