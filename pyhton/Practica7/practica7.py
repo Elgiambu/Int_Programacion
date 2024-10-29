@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def pertenece(s: List[int], e: int) -> bool:
     i : int = 0
@@ -106,25 +107,23 @@ def tres_consecutivos(s:List[int]) -> bool:
             i += 1
     return False
 
-def digitos_impares(s:List[int]) -> List[int]:
+def digitos_impares(s:List[int]) -> int:
     i:int=0
-    lista_aux:List[int] = s
+    lista_aux:List[int] = s.copy()
     res:List[int]=[]
     if (len(s)==0):
-        return res
-    else:
-        while (i < len(lista_aux)):
-            while (lista_aux[i]>10):
-                if ((lista_aux[i]%10)%2 != 0):
-                    res.append(lista_aux[i]%10)
-                lista_aux[i]/10
-            if lista_aux[i]%10 !=0:
-                res.append(lista_aux[i]%10) 
-            i += 1
-    return res
+        return 0
+    while (i < len(lista_aux)):
+        while (lista_aux[i]>10):
+            if ((lista_aux[i]%10)%2 != 0):
+                res.append(lista_aux[i]%10)
+            lista_aux[i]//=10
+        if lista_aux[i]%2 !=0:
+            res.append(lista_aux[i]%10) 
+        i += 1
+    return len(res)
 
 print(digitos_impares([123,3,24,5,573]))
-print(digitos_impares([2,2,24,56,8]))
 print(digitos_impares([]))
             
 
