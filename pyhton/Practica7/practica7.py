@@ -277,14 +277,46 @@ def transponer(s:List[List[int]]) -> List[List[int]]:
         i+=1
     return res
 
-def ta_te_ti(s:List[List[int]]) -> int:
+def ta_te_ti(s:List[List[str]]) -> int:
     i:int=0
     c:int=0
     res:str=""
-    while i<3:
-        if s[i][0] == s[i][1] == s[i][2]:
-            res = s[0]
+    while i<3: #chekeo tateti en horizontal
+        if s[i][0] == s[i][1] == s[i][2] != " ":
+            res = s[i][0]
         i+=1
-    while c<3:
-        if 
+    while c<3: #chekeo tateti en vertical
+        if columna(s,c)[0] == columna(s,c)[1] == columna(s,c)[2] != " ":
+            res = columna(s,c)[0]
+        c +=1
+    if (s[1][1] == s[0][0] == s[2][2]) or (s[1][1] == s[0][2] == s[2][0]): #chekeo diagonal
+        res = s[1][1]
+    if res == "X":
+        return 1
+    elif res == "O":
+        return 0
+    return 2
+
+def nombres() -> List[str]:
+    s=input("nombre de estudiantes: ")
+    res:List[str]=[]
+    while s!="Listo" and s!="":
+        res.append(s)
+        s=input("nombre de estudiantes: ")
+    return res
+
+def social_credits() -> List[Tuple[str,int]]:
+    accion=input("Que desea hacer? _")
+    res:List[Tuple[str,int]]=[]
+    saldo:int=0
+    while accion[0]!="X":
+        monto=int(input("Monto: "))
+        if accion == "D":
+            res.append((accion,monto))
+            saldo-=monto
+        else:
+            res.append((accion,monto))
+            saldo+=monto
         
+        accion=input("Que desea hacer? _")
+    return res
