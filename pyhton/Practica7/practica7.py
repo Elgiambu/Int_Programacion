@@ -1,5 +1,8 @@
 from typing import List
+from typing import Tuple
 import math
+
+#MARK: ejercicio 1
 
 def pertenece(s: List[int], e: int) -> bool:
     i : int = 0
@@ -143,3 +146,145 @@ def sin_vocales(s:str) -> str:
         i += 1
     return res
 
+def remplaza_vocales(s:str) -> str:
+    i:int =0
+    res:str =""
+    opc:str ="aeiouAEIOU"
+    while i<len(s):
+        if not pertenece(opc, s[i]):
+            res += s[i]
+        else:
+            res += "_"
+        i += 1
+    return res
+
+def da_vuelta_str(s:str) -> str:
+    i:int=0
+    res:str =""
+    while i<len(s):
+        res += s[len(s)-i-1]
+        i += 1
+    return res
+
+def elimina_repetidos(s:str) -> str:
+    i:int=0
+    res:str="" 
+    while i<len(s):
+        if not pertenece(res, s[i]):
+            res += s[i]
+        i += 1
+    return res
+
+def resultado_materias(notas:List[int]) -> int:
+    i:int=0
+    lis_aux:List[int]=[]
+    res:int=0
+    while i < len(notas):
+        if notas[i] >= 4:
+            lis_aux.append(notas[i])
+        else:
+            return 3
+        i += 1
+    if ((suma_total(lis_aux)//len(lis_aux)) >= 7):
+        res = 1
+    else:
+        res = 2
+    return res
+
+def movimientos_bancarios(movimientos:List[Tuple[str,int]]) -> int:
+    i:int=0
+    cuenta:int=0
+    while i < len(movimientos):
+        if movimientos[i][0] == "I":
+            cuenta += movimientos[i][1]
+        else:
+            cuenta -= movimientos[i][1]
+        i += 1
+    return cuenta
+
+#MARK: ejercicio 3
+
+def pertenece_a_cada_uno(s:List[List[int]],e:int,res:List[bool]) -> None:
+    i:int=0
+    while i<len(s):
+        res.insert(i, pertenece(s[i],e))
+        i+=1
+    return res
+
+def pertenece_a_cada_uno_2(s:List[List[int]],e:int,res:List[bool]) -> None:
+    i:int=0
+    res.clear()
+    while i<len(s):
+        res.append(pertenece(s[i],e))
+        i+=1
+    return res
+
+def pertenece_a_cada_uno_3(s:List[List[int]],e:int) -> None:
+    i:int=0
+    res:List[bool]=[]
+    while i<len(s):
+        res.append(pertenece(s[i],e))
+        i+=1
+    return res
+
+#si se puede usar la implementacion del 2 para la esp. del ej 1. pues este siempre devuelve un "res" del mismo 
+# largo que "s", mientras que el ej 1 no sirve para la esp. de 2. pues aunque este puede devolver un "res" del mismo
+# largo que "s", tambien puede ser mayo y eso no cumpliria con la especificacion del 2.
+
+def es_matriz(s:List[List[int]]) -> bool:
+    if len(s) <= 0 or len(s[0]) <= 0:
+        return False
+    i:int=0
+    while i<len(s):
+        if s[i] == s[0]:
+            return True
+
+def filas_ordenadas(s:List[List[int]],res:List[bool]) -> None:
+    i:int=0
+    res.clear()
+    while i<len(s):
+        res.append(ordenado(s[i]))
+        i+=1
+    return res
+
+def columna(s:List[List[int]], c:int) -> List[int]:
+    i:int=0
+    res:List[int]=[]
+    while i<len(s):
+        res.append(s[i][c])
+        i+=1
+    return res
+
+def columnas_ordenadas(s:List[List[int]]) -> List[bool]:
+    i:int=0
+    c:int=0
+    res:List[bool]=[]
+    while i<len(s):
+        while c<len(s[i]):
+            res.append(ordenado(columna(s,c)))
+            c+=1
+        i+=1
+    return res
+
+def transponer(s:List[List[int]]) -> List[List[int]]:
+    i:int=0
+    c:int=0
+    res:List[List[int]]=[]
+    while i<len(s):
+        while c<len(s[i]):
+            res.append(columna(s,c))
+            c+=1
+        i+=1
+    return res
+
+def ta_te_ti(s:List[List[int]]) -> int:
+    i:int=0
+    c:int=0
+    res:str=""
+    while i<3:
+        if s[i][0] == s[i][1] == s[i][2]:
+            res = s[0]
+        i+=1
+    while c<3:
+        if 
+        
