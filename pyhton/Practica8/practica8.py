@@ -100,4 +100,67 @@ def evaluar_expresion(s:str)->float:
         i+=1
     return p.get()    
 
-print(evaluar_expresion("3 4 + 5 * 2 -"))
+def intercalar(p1:Pila,p2:Pila)->Pila:
+    p1aux:Pila=Pila()
+    p2aux:Pila=Pila()
+    pfinal:Pila=Pila()
+    while not p2.empty():
+        p2aux.put(p2.get())
+        p1aux.put(p1.get())
+    while not p2aux.empty():
+        n:int=0
+        n = p1aux.get()
+        p1.put(n)
+        pfinal.put(n)
+        n = p2aux.get()
+        p2.put(n)
+        pfinal.put(n)
+    return pfinal
+
+#MARK: Colas 
+from queue import Queue as Cola
+
+def generar_numeros_al_azar_colas(cantidad:int,desde:int,hasta:int)-> Cola:
+    cola:Cola=Cola()
+    while cantidad>0:
+        cola.put(random.randint(desde, hasta))
+        cantidad -= 1
+    return cola
+
+def cantidad_elementos_colas(c:Cola)-> int:
+    res:int=0
+    c2:Cola=Cola()
+    while not c.empty():
+        c2.put(c.get())
+        res+=1
+    while not c2.empty():
+        c.put(c2.get())
+    return res
+
+def buscar_el_maximo_colas(c:Cola)->int:
+    res:int=0
+    n:int=0
+    c2:Cola=Cola()
+    while not c.empty():
+        n = c.get()
+        c2.put(n)
+        if res < n:
+            res = n
+    while not c2.empty():
+        c.put(c2.get())
+    return res
+
+def buscar_nota_minima(c:Cola)-> int:
+    res:int=0
+    a:int=c.get()
+    c2:Cola=Cola(a)
+    while not c.empty():
+        b:int = c.get()
+        c2.put(b)
+        if a < b:
+            res = a
+        else:
+            res = b
+    while not c2.empty():
+        c.put(c2.get())
+    return res
