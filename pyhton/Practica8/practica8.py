@@ -152,15 +152,58 @@ def buscar_el_maximo_colas(c:Cola)->int:
 
 def buscar_nota_minima(c:Cola)-> int:
     res:int=0
-    a:int=c.get()
+    a:Tuple[str,int]=c.get()
     c2:Cola=Cola(a)
     while not c.empty():
-        b:int = c.get()
+        b:Tuple[str,int] = c.get()
         c2.put(b)
-        if a < b:
-            res = a
+        if a[1] < b[1]:
+            res = a[1]
         else:
-            res = b
+            res = b[1]
     while not c2.empty():
         c.put(c2.get())
     return res
+
+def intercalar_colas(c1:Cola,c2:Cola)-> Cola:
+    c1aux:Cola=Cola()
+    c2aux:Cola=Cola()
+    cfinal:Cola=Cola()
+    e:int=0
+    while not c1.empty():
+        e = c2.get()
+        c2aux.put(e)
+        cfinal.put(e)
+        e = c1.get()
+        c1aux.put(e)
+        cfinal.put(e)
+    while not c1aux.empty():
+        c2.put(c2aux.get())
+        c1.put(c1aux.get())
+    return cfinal
+
+def armar_secuencia_de_bingo()->Cola:
+    l:List[int]=[]    
+    c:Cola=Cola()
+    for i in range(100):
+        l.append(i)
+    i:int=99
+    while i >= 0:
+        elemento:int=random.randint(0,i)
+        c.put(l[elemento])
+        l.remove(l[elemento])
+        i-=1
+    return c
+
+def jugar_carton_de_bingo(carton:List[int],bolillero:Cola)-> int:
+    tiradas:int=0
+    i:int=12
+    bolilla:int=0
+    while i!=0:
+        bolilla = bolillero.get()
+        if pertenece(carton,bolilla):
+            i-=1
+        tiradas+=1
+    return tiradas
+
+print(jugar_carton_de_bingo([0,1,4,13,56,45,99,78,83,90,7,54],armar_secuencia_de_bingo()))
