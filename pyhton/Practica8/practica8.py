@@ -206,4 +206,33 @@ def jugar_carton_de_bingo(carton:List[int],bolillero:Cola)-> int:
         tiradas+=1
     return tiradas
 
-print(jugar_carton_de_bingo([0,1,4,13,56,45,99,78,83,90,7,54],armar_secuencia_de_bingo()))
+def carton_aleatorio(cantidad:int)-> List[int]:
+    res:List[int]=[]
+    for i in range(cantidad):
+        n=random.randint(0,99)
+        if not pertenece(res,n):
+            res.append(n)
+    return res
+
+def bingo_mejorado(cartones:List[Tuple[str,List[int]]],bolillero:Cola) -> str: #este ej no esta en la guia, lo hago por diversion
+    bolilla:int=0
+    tiradas:int=0
+    while not bolillero.empty():
+        bolilla = bolillero.get()
+        tiradas += 1
+        for carton in cartones:
+            if pertenece(carton[1],bolilla):
+                carton[1].remove(bolilla)
+        for carton in cartones:
+            if len(carton[1]) == 0:
+                return f"! GANO {carton[0]}, EN {tiradas} TIRADAS¡"
+            
+
+def n_pacientes_urgentes(c:Cola)->int:
+    res:int=0
+    for i in c:
+        if i[0] <= 3:
+            res += 1
+    return res
+
+print(bingo_mejorado([["EL FUCKING GIAMBU",carton_aleatorio(12)],["EL MALDITO MILT",carton_aleatorio(12)],["EL BIGO",carton_aleatorio(12)]],armar_secuencia_de_bingo()))
