@@ -235,4 +235,20 @@ def n_pacientes_urgentes(c:Cola)->int:
             res += 1
     return res
 
-print(bingo_mejorado([["EL FUCKING GIAMBU",carton_aleatorio(12)],["EL MALDITO MILT",carton_aleatorio(12)],["EL BIGO",carton_aleatorio(12)]],armar_secuencia_de_bingo()))
+#MARK:Diccionarios
+
+def calcular_promedio_por_estudiante(notas:List[Tuple[str,float]]) -> dict:
+    res:dict[str,float]={}
+    dictaux:dict[float,float]={}
+    for i in notas:
+        if i[0] not in res:
+            dictaux[i[0]]=1
+            res[i[0]]=i[1]
+        else:
+            dictaux[i[0]]+=1
+            res[i[0]]+=i[1]
+    for i in dictaux:
+        res[i] = res[i] / dictaux[i]
+    return res
+
+print(calcular_promedio_por_estudiante([["a",1.3],["a",2.7],["b",3.0],["b",7.0]]))
