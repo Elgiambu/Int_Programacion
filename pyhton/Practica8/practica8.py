@@ -251,4 +251,29 @@ def calcular_promedio_por_estudiante(notas:List[Tuple[str,float]]) -> dict:
         res[i] = res[i] / dictaux[i]
     return res
 
-print(calcular_promedio_por_estudiante([["a",1.3],["a",2.7],["b",3.0],["b",7.0]]))
+
+#MARK:Archivos
+from typing import TextIO
+
+def contar_lineas(nombre_archivo:str)-> int:
+    archivo: TextIO=open(nombre_archivo,'r')
+    cant:int=len(archivo.readlines())
+    archivo.close
+    return cant
+
+def existe_palabra(palabra:str,nombre_archivo:str)->bool:
+    archivo: TextIO=open(nombre_archivo, 'r')
+    palabra_aux:str=""
+    cortes:str=" ,.\n"
+    for lineas in archivo:
+        for i in lineas:
+            if i not in cortes:
+                palabra_aux += i
+            else:
+                if palabra == palabra_aux:
+                    return True
+                palabra_aux = ""
+    archivo.close
+    return False
+
+print(existe_palabra("hola", "./pyhton/Practica8/archivo.txt"))
