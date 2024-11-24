@@ -36,7 +36,9 @@ se debería devolver `res = 14` (en este caso el programa termina porque el sald
 
 ### 2. Hace calor [2 puntos]
 
-El cambio climático es innegable. En las últimas décadas hemos registrado aumentos en las temperaturas medias del planeta, lo que está generando una gran cantidad de efecto en la climatología de todo el mundo: lluvias más caudalosas, temperaturas más extremas, etc. Las ciencias de la atmósfera vienen estudiando estos cambios hace muchos años, y la conclusión con amplio consenso científico es que este cambio es producto de la actividad humana: lo que se llama "cambio climático antropogénico". Un grupo de estudiantes de la Licenciatura en Ciencias de la Atmósfera (carrera que se estudia en esta Facultad) cuenta con una lista de tuplas de las temperaturas mínimas y máximas diarias de los últimos años en la Ciudad de Buenos Aires. Implementar la función `valor_minimo()` que dado este listado de tuplas devuelva el valor mínimo, entre las mínimas alcanzadas.
+El cambio climático es innegable. En las últimas décadas hemos registrado aumentos en las temperaturas medias del planeta, lo que está generando una gran cantidad de efecto en la climatología de todo el mundo: lluvias más caudalosas, temperaturas más extremas, etc. Las ciencias de la atmósfera vienen estudiando 
+estos cambios hace muchos años, y la conclusión con amplio consenso científico es que este cambio es producto de la actividad humana: lo que se llama "cambio climático antropogénico". Un grupo de estudiantes de la Licenciatura en Ciencias de la Atmósfera (carrera que se estudia en esta Facultad) cuenta con una lista de tuplas de las temperaturas mínimas y máximas diarias de los últimos años en la Ciudad de Buenos Aires.
+ Implementar la función `valor_minimo()` que dado este listado de tuplas devuelva el valor mínimo, entre las mínimas alcanzadas.
 
 ```
 problema valor_minimo (in s: seq<(R,R)>): R {
