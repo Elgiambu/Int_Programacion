@@ -41,3 +41,41 @@ def valores_extremos(cotizaciones_diarias:dict)-> dict:
         res[keys] = (min,max)
     return res
 
+#Ej 4:
+
+def es_sudoku_valido(m:List[List[int]])->bool:
+
+
+matriz = [
+[1, 2, 3, 4, 5, 6, 7, 8, 9],
+[9, 8, 7, 6, 4, 5, 3, 2, 1],
+[0, 0, 0, 0, 0, 0, 1, 0, 0],
+[0, 0, 0, 0, 0, 4, 0, 0, 0],
+[0, 0, 0, 0, 6, 0, 0, 0, 0],
+[0, 0, 0, 5, 0, 0, 0, 0, 0],
+[0, 0, 4, 0, 0, 0, 0, 0, 0],
+[0, 3, 0, 0, 0, 0, 0, 0, 0],
+[2, 0, 0, 0, 0, 0, 0, 0, 0]
+]
+
+def transpuesta(m:List[List[int]])-> List[List[int]]:
+    res:List[List[int]]=[]
+    j:int=0
+    for fila in m:
+        res.append(columna(m,j))
+        j+=1
+    return res
+
+def columna(m:List[List[int]],n:int)->List[int]:
+    res:List[List[int]]=[]
+    for i in m:
+        res.append(i[n])
+    return res
+
+def hay_repe(l:List[int])->bool:
+    i:int=0
+    while i+1 < len(l):
+        if i == 
+
+
+print(transpuesta(matriz))

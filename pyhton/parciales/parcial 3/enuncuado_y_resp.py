@@ -129,7 +129,7 @@ def mezclar(s1: list, s2: list) -> list:
 #Tip: para crear una lista con tantos ceros como caballos se puede utilizar la siguiente 
 #sintaxis lista_ceros = [0]*len(caballos)
 
-#problema frecuencia_posiciones_por_caballo(in caballos: seq⟨String⟩, in carreras: 
+#problema frecuencia_posiciones_por_caballo(in caballos: seq⟨String⟩, in carreras   : 
 #dict⟨String,seq⟨String⟩⟩: dict⟨String,seq⟨Z⟩⟩ {
 #  requiere: {caballos no tiene repetidos}
 #  requiere: {Los valores del diccionario carreras son permutaciones de la lista 
@@ -141,12 +141,8 @@ def mezclar(s1: list, s2: list) -> list:
 #}
 #Por ejemplo, dados
 #caballos= ["linda", "petisa", "mister", "luck" ]
-#carreras= {"carrera1":["linda", "petisa", "mister", "luck"],
-#                  "carrera2":["petisa", "mister", "linda", "luck"]}
-#se debería devolver res = {"petisa": [1,1,0,0],
-#                                          "mister": [0,1,1,0],
-#                                          "linda": [1,0,1,0],
-#                                          "luck": [0,0,0,2]}
+#carreras= {"carrera1":["linda", "petisa", "mister", "luck"],"carrera2":["petisa", "mister", "linda", "luck"]}
+#se debería devolver res = {"petisa": [1,1,0,0],"mister": [0,1,1,0],"linda": [1,0,1,0],"luck": [0,0,0,2]}
 
 
 #primero defino una función que me dice en qué posición salio un

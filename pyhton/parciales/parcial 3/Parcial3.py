@@ -27,4 +27,35 @@ def aparecera_n_veces(s:List[int],n:int,elem:int)->bool:
         res = True
     return res
 
-print(ind_enesima_aparicion([-1, 1, 1, 5, -7, -1, 3],2,-1))
+#Ej 2:
+
+def mezclar(s1:List[int],s2:List[int])->List[int]:
+    i:int=0
+    res:List[int]=[]
+    while i < len(s2):
+        res.append(s1[i])
+        res.append(s2[i])
+        i+=1
+    return res
+
+#Ej 3:
+
+def frecuencia_posiciones_por_caballo(caballos:List[str],carreras:dict)-> dict:
+    res:dict={}
+    for i in caballos:
+        res[i]=[]
+        j:int=0
+        while j < len(carreras.values()[j]):
+            
+    
+
+def cuadrilla(caballos:List[str])->dict:
+    res:dict={}
+    for i in caballos:
+        res[i]=[]
+        j:int=0
+        while j < len(caballos):
+            
+            j+=1
+    return res
+print(cuadrilla(["linda", "petisa", "mister", "luck" ],{"carrera1":["linda", "petisa", "mister", "luck"],"carrera2":["petisa", "mister", "linda", "luck"]}))
